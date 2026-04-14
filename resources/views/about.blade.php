@@ -5,8 +5,8 @@
  <meta name="viewport" content="width=device-width, initial-scale=1"/>
  <meta name="description" content="О ресторане — Antalya"/>
  <title>О нас — Antalya</title>
- <link rel="stylesheet" href="{{ asset('styles.css') }}"/>
- <script defer src="{{ asset('app.js') }}"></script>
+ <link rel="stylesheet" href="/styles.css"/>
+ <script defer src="/app.js"></script>
 </head>
 <body>
  <a class="skip-link" href="#main">Перейти к содержимому</a>

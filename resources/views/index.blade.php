@@ -6,8 +6,8 @@
  <meta name="description" content="Ресторан Antalya — турецкая кухня, доставка, самовывоз и бронирование столиков."/>
  <title>Antalya — ресторан турецкой кухни</title>
 
- <link rel="stylesheet" href="{{ asset('styles.css') }}"/>
- <script defer src="{{ asset('app.js') }}"></script>
+ <link rel="stylesheet" href="/styles.css"/>
+ <script defer src="/app.js"></script>
 
  <!-- Простая favicon-иконка (SVG data-uri) -->
  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='14' fill='%23111'/%3E%3Cpath d='M18 41c10-14 18-14 28 0' fill='none' stroke='%23f2c14e' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='23' r='8' fill='%23f2c14e'/%3E%3C/svg%3E"/>
