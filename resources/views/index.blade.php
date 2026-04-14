@@ -558,6 +558,7 @@
 
  <!-- JSON-LD (структурированные данные) -->
  <script type="application/ld+json">
+@verbatim
  {
  "@context": "https://schema.org",
  "@type": "Restaurant",
@@ -571,6 +572,7 @@
  "streetAddress": "Ваша улица, 10"
  }
  }
+@endverbatim
  </script>
 </body>
 </html>
