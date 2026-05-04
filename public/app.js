@@ -33,6 +33,17 @@ function normalizeAssetPath(p){
   return "/" + s;
 }
 
+/** Кодирует каждый сегмент пути (имена файлов с кириллицей) — иначе на Linux/nginx картинки 404 */
+function encodePathSegments(path){
+  if (!path) return path;
+  const s = String(path);
+  if (s.startsWith("http://") || s.startsWith("https://") || s.startsWith("data:")) return s;
+  const lead = s.startsWith("/") ? "/" : "";
+  const rest = lead ? s.slice(1) : s;
+  const parts = rest.split("/").filter(Boolean);
+  return lead + parts.map((seg) => encodeURIComponent(seg)).join("/");
+}
+
 async function loadMenuFromApi(){
   const res = await fetch(API.menu, { headers: { "Accept": "application/json" }});
   if (!res.ok) throw new Error(`Menu API failed: ${res.status}`);
@@ -85,7 +96,7 @@ function setImageWithFallback(imgEl, primarySrc){
       if (wrap) wrap.hidden = true, (wrap.style.display = "none");
       return;
     }
-    const nextSrc = base + order[tryIdx++];
+    const nextSrc = encodePathSegments(base + order[tryIdx++]);
     const wrap = imgEl.closest(".menuItem__imgWrap, .dishImgWrap");
     if (wrap) wrap.hidden = false, (wrap.style.display = "");
     imgEl.onerror = tryNext;
@@ -93,7 +104,7 @@ function setImageWithFallback(imgEl, primarySrc){
   }
   if (primaryExt){
     imgEl.onerror = tryNext;
-    imgEl.src = base + primaryExt;
+    imgEl.src = encodePathSegments(base + primaryExt);
   } else {
     tryNext();
   }
